@@ -1,0 +1,20 @@
+{% extends 'core/base.html'  %}
+
+{% block content %}
+<h1>Welcome to Pedro Provision Store</h1>
+
+    <div class="row">
+      {% for product in products %}
+      <div class="col">
+        <div class="card" style="width: 18rem; margin-top: 15px;">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="..." height="300" width="300" style="border: 2px solid lightblue;">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+
+                <a href="{% url 'core:detail' product.pk %}" class="btn btn-primary"><i class="cil-cart"></i>Views</a>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endblock %}
